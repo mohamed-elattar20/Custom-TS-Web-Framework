@@ -4,6 +4,8 @@
   "description": "<!-- Attempting to implement a Ts web framework --> <!-- to run use : npx parcel index.html --> <!-- to run json server : json-server -w dp.json -->",
   "main": "index.js",
   "dependencies": {
+    "@types/axios": "^0.14.4",
+    "axios": "^1.7.9",
     "json-server": "^0.17.4",
     "parcel": "^2.13.3"
   },
@@ -13,5 +15,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "buffer": "^6.0.3",
+    "process": "^0.11.10"
+  }
 }
