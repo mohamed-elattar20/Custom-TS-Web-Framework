@@ -1,0 +1,17 @@
+{
+  "name": "framework",
+  "version": "1.0.0",
+  "description": "<!-- Attempting to implement a Ts web framework --> <!-- to run use : npx parcel index.html --> <!-- to run json server : json-server -w dp.json -->",
+  "main": "index.js",
+  "dependencies": {
+    "json-server": "^0.17.4",
+    "parcel": "^2.13.3"
+  },
+  "scripts": {
+    "start:db": "json-server -w db.json",
+    "start:parcel": "parcel index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
