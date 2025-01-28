@@ -596,6 +596,63 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
 }
 
 },{}],"en7oB":[function(require,module,exports,__globalThis) {
+var _user = require("./models/user");
+const user = new (0, _user.User)({
+    name: 'mohamed',
+    age: 26
+});
+console.log(user.get('name'));
+user.set({
+    name: 'mohamed '
+});
+console.log(user);
+
+},{"./models/user":"iYt6o"}],"iYt6o":[function(require,module,exports,__globalThis) {
+//
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "User", ()=>User);
+class User {
+    constructor(data){
+        this.data = data;
+    }
+    get(propName) {
+        return this.data[propName];
+    }
+    set(updatedData) {
+        Object.assign(this.data, updatedData);
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"bGY5D"}],"bGY5D":[function(require,module,exports,__globalThis) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule' || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
 },{}]},["5dDlQ","en7oB"], "en7oB", "parcelRequire94c2")
 
