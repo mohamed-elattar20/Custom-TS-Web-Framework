@@ -2,11 +2,27 @@ import { HasId } from '../models/api-sync';
 import { Model } from '../models/model';
 
 export abstract class View<T extends Model<K>, K extends HasId> {
+  regions: { [key: string]: Element } = {};
+
   constructor(public parent: Element, public model: T) {
     this.bindModel();
   }
 
-  abstract eventsMap(): { [key: string]: () => void };
+  regionsMap(): { [key: string]: string } {
+    return {};
+  }
+  mapRegions(fragement: DocumentFragment): void {
+    const regionsMap = this.regionsMap();
+    for (let key in regionsMap) {
+      const selector = regionsMap[key];
+      const element = fragement.querySelector(selector);
+      if (element) this.regions[key] = element;
+    }
+  }
+
+  eventsMap(): { [key: string]: () => void } {
+    return {};
+  }
   abstract template(): string;
   bindModel(): void {
     this.model.on('change', () => {
@@ -31,6 +47,7 @@ export abstract class View<T extends Model<K>, K extends HasId> {
     tempalateElement.innerHTML = this.template();
 
     this.bindEvents(tempalateElement.content);
+    this.mapRegions(tempalateElement.content);
 
     this.parent.append(tempalateElement.content);
   }
