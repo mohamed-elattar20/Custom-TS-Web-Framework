@@ -1,7 +1,8 @@
-import { User } from '../models/user';
+import { HasId } from '../models/api-sync';
+import { Model } from '../models/model';
 
-export abstract class View {
-  constructor(public parent: Element, public model: User) {
+export abstract class View<T extends Model<K>, K extends HasId> {
+  constructor(public parent: Element, public model: T) {
     this.bindModel();
   }
 
